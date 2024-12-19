@@ -1,0 +1,19 @@
+.modalExternal {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+    width: 500px;
+    height: 500px;
+    background-color: #181616;
+    padding: 20px;
+    border-radius: 10px;
+}
