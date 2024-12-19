@@ -5,7 +5,7 @@ import Swap from './components/Swap/Swap'; // Your Swap component
 import Tokens from './components/Tokens/Tokens'; // Your Tokens component
 import NFTs from './components/NFTs/NFTs'; // Your NFTs component
 import Pool from './components/Pool/Pool'; // Your Pool component
-
+import Home from './components/Home/Home';
 //wallet modal
 import WalletModal from './components/WalletModal/WalletModal';
 
@@ -34,6 +34,7 @@ const App: React.FC = () => {
 
       <Header onConnectWalletClick={handleConnectWallet} />
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/swap" element={<Swap />} />
         <Route path="/tokens" element={<Tokens />} />
         <Route path="/nfts" element={<NFTs />} />

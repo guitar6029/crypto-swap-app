@@ -1,15 +1,46 @@
-html, body {
+html,
+body {
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
     background-color: #000000;
-    overflow: hidden; /* Prevents scrolling */
-    box-sizing: border-box; /* Ensures padding and borders are included in the total size */
+    overflow: hidden;
+    /* Prevents scrolling */
+    box-sizing: border-box;
+    /* Ensures padding and borders are included in the total size */
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: inherit; /* Ensures all child elements inherit box-sizing */
+    box-sizing: inherit;
+    /* Ensures all child elements inherit box-sizing */
+}
+
+.hover-tab {
+    padding: .3rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, color 0.5s ease-in-out;
+
+    &:hover {
+        background-color: #fff;
+        a, span {
+            color: #000;
+        }
+        svg {
+            fill: #000;
+            color: #000;
+            
+        }
+    }
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+a {
+    color: #fff;
 }
