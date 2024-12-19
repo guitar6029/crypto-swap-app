@@ -6,6 +6,7 @@ import Tokens from './components/Tokens/Tokens'; // Your Tokens component
 import NFTs from './components/NFTs/NFTs'; // Your NFTs component
 import Pool from './components/Pool/Pool'; // Your Pool component
 import Home from './components/Home/Home';
+
 //wallet modal
 import WalletModal from './components/WalletModal/WalletModal';
 

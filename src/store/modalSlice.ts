@@ -6,7 +6,7 @@ interface ModalState {
 }
 
 const initialState: ModalState = {
-  currencySelected: null, // Default to no currency selected
+  currencySelected: 'usd', // Default to no currency selected
 };
 
 const modalSlice = createSlice({
