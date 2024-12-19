@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
-import styles from './Header.module.scss';
 import { IoWalletOutline } from "react-icons/io5";
-import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { RootState, AppDispatch } from '../../store/store'; // Types for Redux
 import { selectCurrency } from '../../store/modalSlice'; // Import the Redux action
+import { useSelector, useDispatch } from 'react-redux';
+import styles from './Header.module.scss';
 
 type HeaderProps = {
   onConnectWalletClick: () => void;
