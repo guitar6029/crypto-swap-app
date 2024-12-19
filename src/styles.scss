@@ -10,6 +10,13 @@ body {
     box-sizing: border-box;
     /* Ensures padding and borders are included in the total size */
     font-family: 'Poppins', sans-serif;
+
+
+    background-image: url('./assets/cryptoImg.avif');
+    background-size: cover;
+    background-position: center;
+    // width: 100vw;
+    // height: 100vh;
 }
 
 *,
