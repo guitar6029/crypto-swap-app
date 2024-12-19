@@ -39,7 +39,7 @@ const Header: React.FC<HeaderProps> = ({ onConnectWalletClick }) => {
         <div className="right-side-header d-flex align-items-center gap-2">
           <div className={styles.currencyContainer}>
             <select
-              value={selectedCurrency} // Bind the Redux state to the select element
+              value={selectedCurrency ?? 'usd'} // Bind the Redux state to the select element
               onChange={handleCurrencyChange} 
               name="currency"
             >

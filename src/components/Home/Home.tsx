@@ -8,7 +8,7 @@ type HomePropsTypes = {}
 
 const Home: React.FC<HomePropsTypes> = () => {
 
-    
+
     return (
         <>
         <div className="row m-0">
