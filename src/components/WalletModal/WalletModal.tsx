@@ -1,7 +1,7 @@
 import styles from "./wallet.module.scss";
 import { IoMdCloseCircle } from "react-icons/io";
 import { IoWalletOutline } from "react-icons/io5";
-import TabLink from "../TabLink/TabLink";
+import TabLink from "../../components/TabLink/TabLink";
 type WalletModalProps = {
     onClose: () => void;
 }

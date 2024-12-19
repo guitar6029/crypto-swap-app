@@ -1,10 +1,13 @@
+import styles from './home.module.scss'
 
 type HomePropsTypes = {}
 
 const Home: React.FC<HomePropsTypes> = () => {
     return (
-        <div>
-            <h1>Home</h1>
+        <div className={`${styles.home} row m-0`}>
+            <div>
+                <h3 className={styles.homeTitle}>CryptoSwap</h3>
+            </div>
         </div>
     );
 
