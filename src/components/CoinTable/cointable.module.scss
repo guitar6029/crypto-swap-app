@@ -1,0 +1,11 @@
+.coinTable{
+    max-height: 85vh; 
+    overflow-y: auto ;
+    opacity: 0.8;
+    border-radius: 8px;
+
+    .coinImage{
+        width: 30px;
+        height: 30px;
+    }
+}
