@@ -25,10 +25,15 @@ const LineChart : React.FC<LineChartProp> = ({chartDataProp, titleChart}) => {
     }, [chartDataProp])
 
     return (
-        <Chart 
+        <Chart
+        legendToggle={false} 
         chartType="LineChart"
         data={dataForChart}
-        height="100%"
+        width="700px"
+        height="400px"
+        options={{
+            legend: { position: 'none' },  // This will hide the legend
+        }}
          />    
     )   
 }

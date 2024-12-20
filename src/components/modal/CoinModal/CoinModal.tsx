@@ -1,11 +1,12 @@
+import { convertToBigNumber } from '../../../uitls/Numbers/NumberUtils';
 import { Coin } from "../../../uitls/Interface/Coin/CoinRelated";
-import { IoMdCloseCircle } from "react-icons/io";
-import styles from "./coinmodal.module.scss";
 import { handleExternalClick } from "../../../uitls/ClickEvent/ClickOutsideRelated";
-import { useSelector } from 'react-redux';
+import { IoMdCloseCircle } from "react-icons/io";
 import { RootState } from '../../../store/store';
+import { useSelector } from 'react-redux';
 import { useState, useEffect, useRef } from "react";
 import LineChart from "../../Charts/LineChart";
+import styles from "./coinmodal.module.scss";
 
 type CoinModalProps = {
     coin: Coin;
@@ -39,7 +40,7 @@ const CoinModal: React.FC<CoinModalProps> = ({ coin, onClose }) => {
                     }
                 });
                 const data = await response.json();
-                
+
                 setCoinData(data);  // Set fetched data
             } catch (error) {
                 console.error('Error fetching coin data:', error);
@@ -69,29 +70,83 @@ const CoinModal: React.FC<CoinModalProps> = ({ coin, onClose }) => {
                 </div>
 
                 <div className="row">
-                    <div className="col-12 d-flex align-items-center gap-2">
-                        <span>{coinToDisplay?.name}</span>
+                    <div className="col-12 col-12 d-flex align-items-center justify-content-center gap-2">
                         <img className={styles.coinImage} src={coinToDisplay?.image} alt={coinToDisplay?.name} />
+                        <span>{coinToDisplay?.name}</span>
+                        <span>({coinToDisplay?.symbol ? coinToDisplay?.symbol.toUpperCase() : "N/A"})</span>
                     </div>
                 </div>
 
                 <div>
-                    
+
 
                     {/* Show loading state or fetched coin data */}
-                    {loading && <p>Loading...</p> }
+                    {loading && <p>Loading...</p>}
                 </div>
 
 
                 <div className="row mt-4">
-                    <div className="col-12 ">
+                    <div className="col-12 d-flex align-items-center justify-content-center ">
                         {coinData && coinData.prices ? (
-                            <LineChart chartDataProp={coinData}  titleChart={coinToDisplay?.id ?? "Crypto Chart"}/>
+                            <LineChart chartDataProp={coinData} titleChart={coinToDisplay?.id ?? "Crypto Chart"} />
                         ) : (
                             <p>Loading chart data...</p>
                         )}
                     </div>
                 </div>
+
+
+                <div className="row t-4">
+                    <div className="col-12 col-12 d-flex align-items-center justify-content-center">
+                        <p className="small">Last 10 days</p>
+                    </div>
+                </div>
+
+
+                <div className="row mt-4">
+                    <div className="col-12 d-flex flex-column">
+                        {/* Current Price */}
+                        <div className="d-flex align-items-center gap-2">
+                            <div className="col-6 text-end">  {/* Left part (label) */}
+                                <span className={styles.label}>Current Price :</span>
+                            </div>
+                            <div className="col-6 text-start">  {/* Right part (value) */}
+                                <span className={styles.value}>{convertToBigNumber(coinToDisplay?.current_price, currencySelected ?? "usd")}</span>
+                            </div>
+                        </div>
+
+                        {/* Market Cap */}
+                        <div className="d-flex align-items-center gap-2">
+                            <div className="col-6 text-end">  {/* Left part (label) */}
+                                <span className={styles.label}>Market Cap :</span>
+                            </div>
+                            <div className="col-6 text-start">  {/* Right part (value) */}
+                                <span className={styles.value}>{convertToBigNumber(coinToDisplay?.market_cap, currencySelected ?? "usd")}</span>
+                            </div>
+                        </div>
+
+                        {/* Market Cap Rank */}
+                        <div className="d-flex align-items-center gap-2">
+                            <div className="col-6 text-end">  {/* Left part (label) */}
+                                <span className={styles.label}>Rank :</span>
+                            </div>
+                            <div className="col-6 text-start">  {/* Right part (value) */}
+                                <span className={styles.value}>{coinToDisplay?.market_cap_rank}</span>
+                            </div>
+                        </div>
+
+                        {/* Volume (24h) */}
+                        <div className="d-flex align-items-center gap-2">
+                            <div className="col-6 text-end">  {/* Left part (label) */}
+                                <span className={styles.label}>Volume (24h) :</span>
+                            </div>
+                            <div className="col-6 text-start">  {/* Right part (value) */}
+                                <span className={styles.value}>{convertToBigNumber(coinToDisplay?.total_volume, currencySelected ?? "usd")}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     );

@@ -17,6 +17,8 @@ import CoinTextProvider from "./context/CoinContext";
 //wallet modal
 import WalletModal from './components/WalletModal/WalletModal';
 
+import NotFound from './components/NotFound/NotFound'; 
+
 const App: React.FC = () => {
 
 
@@ -57,7 +59,7 @@ const App: React.FC = () => {
         <Route path="/tokens" element={<Tokens />} />
         <Route path="/nfts" element={<NFTs />} />
         <Route path="/pool" element={<Pool />} />
-        {/* Add other routes as needed */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
     </CoinTextProvider>
