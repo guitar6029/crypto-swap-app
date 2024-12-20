@@ -1,56 +1,45 @@
-import { CoinContext } from '../../context/CoinContext'; // Import CoinContext
-import { useContext } from 'react';
+import { CoinContext } from '../../context/CoinContext'; 
+import { useContext, useState } from 'react';
 import CoinTable from '../../components/CoinTable/CoinTable';
-import CoinTrending from '../../components/CoinTrending/CoinTrending';
-import GreedAndFearIndex from '../GreedAndFearIndex/GreedAndFearIndex';
-import styles from './home.module.scss';
+import CoinModal from '../modal/CoinModal/CoinModal';
 
 type HomePropsTypes = {};
 
 const Home: React.FC<HomePropsTypes> = () => {
+  const [showModal, setShowModal] = useState(false); // State to control modal visibility
+  const [selectedCoin, setSelectedCoin] = useState<any>(null); // Store the selected coin
 
-    // Get the context value
-    const coinContext = useContext(CoinContext);
+  const handleCoinModal = (coin: any) => {
+    setSelectedCoin(coin);
+    setShowModal(true); // Open the modal when a coin is clicked
+  };
 
-    if (!coinContext) {
-        return <div>Loading...</div>;
-    }
+  const handleCloseModal = () => {
+    setShowModal(false); // Close the modal
+  };
 
-    const { allCoins, topTrendingCoins } = coinContext;
+  // Get the context value
+  const coinContext = useContext(CoinContext);
+  if (!coinContext) {
+    return <div>Loading...</div>;
+  }
 
-    const topCoinsTrending = () => {
-        if (topTrendingCoins && topTrendingCoins) {
-            return topTrendingCoins.map((coin: any) => ({
-                symbol: coin.item.symbol,
-                name: coin.item.name,
-                small: coin.item.small,
-                price: coin.item.data.price,
-                market_cap: coin.item.data.market_cap
-            }));
-        }
-        return [];
-    }
+  const { allCoins, topTrendingCoins } = coinContext;
 
-    return (
-        <>
-            {/* <div className="row m-4">
-                <div className="col-6">
-                    <GreedAndFearIndex />
-                </div>
-                <div className="col-6">
-                    <CoinTrending coins={topCoinsTrending()} />
-                </div>
-            </div> */}
+  return (
+    <>
+      <div className="row m-4">
+        <div className="col-12">
+          <CoinTable coins={allCoins} onCryptoCoinClick={handleCoinModal} />
+        </div>
+      </div>
 
-
-            <div className="row m-4">
-                {/* Render the table passing the allCoins data */}
-                <div className='col-12'>
-                    <CoinTable coins={allCoins} />
-                </div>
-            </div>
-        </>
-    );
+      {showModal && selectedCoin && (
+        <CoinModal coin={selectedCoin} onClose={handleCloseModal} />
+      )}
+    </>
+  );
 };
 
 export default Home;
+

@@ -1,0 +1,16 @@
+.coinImage {
+    width: 30px;
+    height: 30px;
+}
+
+.coinModal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    height: 300px;
+    background-color: #181616;
+    padding: 20px;
+    border-radius: 8px;
+    color: #fff;
+}

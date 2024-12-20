@@ -31,10 +31,10 @@ const Header: React.FC<HeaderProps> = ({ onConnectWalletClick }) => {
       <div className="col-12 d-flex align-items-center justify-content-between">
         <div className="left-side-header d-flex align-items-center gap-4">
           <span><Link to="/">CryptoSwap</Link></span>
-          <span className="hover-tab"><Link to="/swap">Swap</Link></span>
+          {/* <span className="hover-tab"><Link to="/swap">Swap</Link></span>
           <span className="hover-tab"><Link to="/tokens">Tokens</Link></span>
           <span className="hover-tab"><Link to="/nfts">NFTs</Link></span>
-          <span className="hover-tab"><Link to="/pool">Pool</Link></span>
+          <span className="hover-tab"><Link to="/pool">Pool</Link></span> */}
         </div>
         <div className="right-side-header d-flex align-items-center gap-2">
           <div className={styles.currencyContainer}>

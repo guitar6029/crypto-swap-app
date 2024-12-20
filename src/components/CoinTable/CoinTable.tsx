@@ -17,9 +17,10 @@ type Coin = {
 
 type TableProps = {
   coins: Coin[]; // Array of coins to display in the table
+  onCryptoCoinClick: (coin : Coin) => void
 };
 
-const CoinTable: React.FC<TableProps> = ({ coins }) => {
+const CoinTable: React.FC<TableProps> = ({ coins , onCryptoCoinClick }) => {
 
   return (
     <div
@@ -39,7 +40,7 @@ const CoinTable: React.FC<TableProps> = ({ coins }) => {
         </thead>
         <tbody>
           {coins.map((coin, index) => (
-            <tr key={index}>
+            <tr className="cursor-pointer" onClick={() => onCryptoCoinClick(coin)} key={index}>
               <td>{coin.market_cap_rank}</td>
               <td className="text-uppercase">{coin.symbol}</td>
               <td className="d-flex align-items-center gap-3">
