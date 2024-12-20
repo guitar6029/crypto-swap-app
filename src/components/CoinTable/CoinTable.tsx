@@ -21,10 +21,10 @@ type TableProps = {
 
 const CoinTable: React.FC<TableProps> = ({ coins }) => {
 
-
-
   return (
-    <div className={`${styles.coinTable} table-responsive `} >
+    <div
+      className={`${styles.coinTable} coin-card-primary-text coin-card-primary-bg table-responsive`}
+    >
       <table className="table table-striped">
         <thead>
           <tr>
@@ -42,7 +42,9 @@ const CoinTable: React.FC<TableProps> = ({ coins }) => {
             <tr key={index}>
               <td>{coin.market_cap_rank}</td>
               <td className="text-uppercase">{coin.symbol}</td>
-              <td className='d-flex align-items-center gap-3'><img className={styles.coinImage} src={coin.image} alt={coin.name} /> {coin.name}</td>
+              <td className="d-flex align-items-center gap-3">
+                <img className={styles.coinImage} src={coin.image} alt={coin.name} /> {coin.name}
+              </td>
               <td>{addCommas(coin.current_price)}</td>
               <td>{addCommas(coin.low_24h)}</td>
               <td>{addCommas(coin.high_24h)}</td>

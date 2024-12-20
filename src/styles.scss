@@ -11,13 +11,10 @@ body {
     box-sizing: border-box;
     /* Ensures padding and borders are included in the total size */
     font-family: 'Poppins', sans-serif;
-
-
     background-image: url('./assets/cryptoImg.avif');
     background-size: cover;
     background-position: center;
-    // width: 100vw;
-    // height: 100vh;
+    
 }
 
 *,
@@ -79,4 +76,59 @@ a {
   ::-webkit-scrollbar-thumb {
     transition: background 0.3s ease;
   }
+  
+
+  .coin-card-primary-bg {
+    background-color: #181616;
+  }
+  
+  .coin-card-primary-text {
+    color: #fff;
+  
+    table {
+      color: inherit; // Ensure table text inherits the white color
+    }
+  
+    th, td {
+      border-color: #2a2a2a; // Adjust border colors for dark themes
+    }
+  
+    .table-striped > tbody > tr:nth-of-type(odd) {
+      background-color: #2f2828; // Subtle striping for dark backgrounds
+    }
+  }
+
+
+  .coin-card-primary-bg {
+    background-color: #0f0d0d;
+  
+    table {
+      background-color: inherit; // Ensure the table background matches the container
+  
+      th, td {
+        background-color: inherit; // Inherit the background color from the parent
+        color: inherit;           // Inherit the text color from the parent
+        border-color: #0a0909;    // Adjust border color for better contrast
+      }
+    }
+  }
+  
+  .coin-card-priamry-text {
+    color: #fff;
+  
+    table th, table td {
+      
+      color: inherit; // Ensure text color matches the parent
+    }
+  }
+
+  .greedfearindex-card{
+    background: #000000;
+    span, h1, h2, h3, h4, h5, h6, p {
+      color: #fff;
+
+    }
+  }
+
+
   

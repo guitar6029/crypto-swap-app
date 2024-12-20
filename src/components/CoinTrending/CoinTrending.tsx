@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './coinTrending.module.scss';
+import { FaChevronRight } from "react-icons/fa6";
+
 
 interface CoinsTrending {
   symbol: string;
@@ -14,19 +16,43 @@ type CoingTrendingTypes = {
 };
 
 const CoinTrending: React.FC<CoingTrendingTypes> = ({ coins }) => {
-  console.log("coins: ", coins);
-
+  
   return (
-    <div className="card d-flex flex-column">
+    <div className={`${styles.trendingCoinCard} coin-card-primary-text coin-card-primary-bg card d-flex flex-column p-3`}>
+      <div className="d-flex align-items-baseline gap-2 mb-3">
+        <h3>Trending Coins</h3>
+        <FaChevronRight />
+      </div>
       {coins.length > 0 ? (
-        coins.map((coin, index) => (
-          <div className="d-flex align-items-center gap-2" key={index}>
-            <img src={coin.small} alt={coin.name} />
-            <p>{coin.symbol}</p>
-                  <p>{coin.name}</p>
-                  <p> ${coin.price}</p>
-                  <p>{coin.market_cap}</p>
-            
+        coins.slice(0, 5).map((coin, index) => (
+          <div
+            className="d-flex align-items-center py-2"
+            style={{ borderBottom: "1px solid #e0e0e0" }}
+            key={index}
+          >
+            {/* Icon */}
+            <div style={{ width: "50px", textAlign: "center" }}>
+              <img
+                src={coin.small}
+                alt={coin.name}
+                style={{ width: "24px", height: "24px" }}
+              />
+            </div>
+
+            {/* Name */}
+            <div style={{ width: "150px", textAlign: "left" }}>
+              <span className="fw-bold">{coin.name}</span>
+            </div>
+
+            {/* Symbol */}
+            <div style={{ width: "100px", textAlign: "center", textTransform: "uppercase" }}>
+              <span>{coin.symbol}</span>
+            </div>
+
+            {/* Price */}
+            <div style={{ width: "100px", textAlign: "right" }}>
+              <span>${coin.price.toFixed(2)}</span>
+            </div>
           </div>
         ))
       ) : (
@@ -34,6 +60,7 @@ const CoinTrending: React.FC<CoingTrendingTypes> = ({ coins }) => {
       )}
     </div>
   );
+
 };
 
 export default CoinTrending;

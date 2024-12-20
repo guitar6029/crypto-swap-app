@@ -1,8 +1,9 @@
-import styles from './home.module.scss';
 import { CoinContext } from '../../context/CoinContext'; // Import CoinContext
 import { useContext } from 'react';
 import CoinTable from '../../components/CoinTable/CoinTable';
 import CoinTrending from '../../components/CoinTrending/CoinTrending';
+import GreedAndFearIndex from '../GreedAndFearIndex/GreedAndFearIndex';
+import styles from './home.module.scss';
 
 type HomePropsTypes = {};
 
@@ -32,13 +33,15 @@ const Home: React.FC<HomePropsTypes> = () => {
 
     return (
         <>
-            <div className="row m-4">
-                <div className="col-12">
-                    <div className="col-6">
-                        <CoinTrending coins={topCoinsTrending()} />
-                    </div>
+            {/* <div className="row m-4">
+                <div className="col-6">
+                    <GreedAndFearIndex />
                 </div>
-            </div>
+                <div className="col-6">
+                    <CoinTrending coins={topCoinsTrending()} />
+                </div>
+            </div> */}
+
 
             <div className="row m-4">
                 {/* Render the table passing the allCoins data */}

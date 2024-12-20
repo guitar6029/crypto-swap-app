@@ -25,8 +25,23 @@ interface TrendingCoin {
   }
 
 
+  interface Rate {
+    name: string;
+    unit: string;
+    value: number;
+    type: string;
+  }
+  
+  interface BTCToCurrencyExchangeRates {
+    rates: {
+      [key: string]: Rate; // Dynamic keys representing cryptocurrencies
+    };
+  }
+  
+
 // Define the type for the context value
 interface CoinContextType {
+  exchangeRate: BTCToCurrencyExchangeRates[];
   topTrendingCoins: TrendingCoin[];
   allCoins: any[]; // Define the type of coins based on your response data
   fetchAllCoins: () => void; // Add fetch function to the context
@@ -45,11 +60,13 @@ const CoinTextProvider: React.FC<CoinTextProviderProps> = ({ children }) => {
   // States
   const [allCoins, setAllCoins] = useState<any[]>([]); // Define state for all coins
   const [topTrendingCoins, setTopTrendingCoins] = useState<any[]>([]); // Define state for top trending coins
+  const [btcToCurrencyExchangeList, setBTCExchangeRate] = useState<BTCToCurrencyExchangeRates[]>([]);
   const currency = useSelector((state: RootState) => state.modal.currencySelected);
 
   useEffect(() => {
     fetchAllCoins(); // Fetch coins when the component mounts
     fetchTopTrendingCoins();
+    fetchBTCExchangeRate();
   }, [currency]); // Make sure the API is fetched whenever the currency changes
 
   const fetchAllCoins = async () => {
@@ -64,6 +81,19 @@ const CoinTextProvider: React.FC<CoinTextProviderProps> = ({ children }) => {
       .then(res => setAllCoins(res))
       .catch(err => console.error(err));
   };
+
+  const fetchBTCExchangeRate = async () => {
+    const apiKey = import.meta.env.VITE_COIN_GECKO_API_KEY;
+    const options = {
+      method: 'GET',
+      headers: {accept: 'application/json', 'x-cg-demo-api-key': apiKey || ''}
+    };
+    
+    fetch('https://api.coingecko.com/api/v3/exchange_rates', options)
+      .then(res => res.json())
+      .then(res => setBTCExchangeRate(res.rates))
+      .catch(err => console.error(err));
+  }
 
   const fetchTopTrendingCoins = async () => {
     const apiKey = import.meta.env.VITE_COIN_GECKO_API_KEY;
@@ -81,6 +111,7 @@ const CoinTextProvider: React.FC<CoinTextProviderProps> = ({ children }) => {
   // Define the actual context value with data or methods
   const contextValue: CoinContextType = {
     allCoins,
+    exchangeRate: btcToCurrencyExchangeList,
     topTrendingCoins,
     fetchAllCoins // Provide the fetch method
   };

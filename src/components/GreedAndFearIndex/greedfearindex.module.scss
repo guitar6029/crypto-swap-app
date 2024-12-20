@@ -1,0 +1,82 @@
+.card {
+    color: #fff;
+    background: #1b1b1b;
+    max-width: 300px; /* Updated to 300px */
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px; /* Add padding for better spacing */
+}
+
+.icon {
+    color: #f7931a;
+    font-size: 1.2rem; /* Slightly smaller for better proportion */
+}
+
+.gaugeContainer {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    border-radius: 50%;
+    background: linear-gradient(to right, #f54e4e, #f7ca4f, #8fc644);
+}
+
+.gauge {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%; /* Reduced width for smaller scaling */
+    height: 42%; /* Reduced height for better proportion */
+    background: transparent;
+    clip-path: polygon(50% 100%, 0 100%, 0 0, 100% 0, 100% 100%);
+    border-radius: 50%;
+}
+
+.needle {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform-origin: bottom center;
+    width: 2px;
+    height: 45%; /* Reduced height */
+    background: #666;
+    border-radius: 2px;
+}
+
+.centerIcon {
+    position: absolute;
+    bottom: -8px; /* Adjusted for smaller container */
+    left: 50%;
+    transform: translate(-50%, 50%);
+    background: white;
+    border: 2px solid #e0e0e0;
+    width: 35px; /* Reduced size */
+    height: 35px; /* Reduced size */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.centerIcon svg {
+    font-size: 1rem; /* Reduced font size */
+    color: #f7931a;
+}
+
+.greedyText {
+    color: #4caf50;
+    font-size: 0.9rem; /* Smaller font size */
+}
+
+.indexCircle {
+    display: inline-block;
+    width: 35px; /* Slightly smaller */
+    height: 35px; /* Slightly smaller */
+    border-radius: 50%;
+    background: #d9f7be;
+    color: #4caf50;
+    font-weight: bold;
+    line-height: 35px; /* Adjusted for smaller size */
+    text-align: center;
+}
