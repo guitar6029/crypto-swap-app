@@ -1,11 +1,7 @@
 
 
 const Tokens : React.FC = () => {
-    return (
-        <div>
-            <h1>Tokens</h1>
-        </div>
-    );
+    return (<><div><h4>Work in progress</h4></div></>)
 }
 
 export default Tokens

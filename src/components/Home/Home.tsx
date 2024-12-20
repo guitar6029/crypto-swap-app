@@ -1,30 +1,53 @@
 import styles from './home.module.scss';
-import CoinTab from '../CoinTab/CoinTab';
 import { CoinContext } from '../../context/CoinContext'; // Import CoinContext
 import { useContext } from 'react';
 import CoinTable from '../../components/CoinTable/CoinTable';
+import CoinTrending from '../../components/CoinTrending/CoinTrending';
 
 type HomePropsTypes = {};
 
 const Home: React.FC<HomePropsTypes> = () => {
 
-  // Get the context value
-  const coinContext = useContext(CoinContext);
+    // Get the context value
+    const coinContext = useContext(CoinContext);
 
-  if (!coinContext) {
-    return <div>Loading...</div>;
-  }
+    if (!coinContext) {
+        return <div>Loading...</div>;
+    }
 
-  const { allCoins } = coinContext;
+    const { allCoins, topTrendingCoins } = coinContext;
 
-  return (
-    <>
-      <div className="row m-4">
-        {/* Render the table passing the allCoins data */}
-        <CoinTable coins={allCoins} /> 
-      </div>
-    </>
-  );
+    const topCoinsTrending = () => {
+        if (topTrendingCoins && topTrendingCoins) {
+            return topTrendingCoins.map((coin: any) => ({
+                symbol: coin.item.symbol,
+                name: coin.item.name,
+                small: coin.item.small,
+                price: coin.item.data.price,
+                market_cap: coin.item.data.market_cap
+            }));
+        }
+        return [];
+    }
+
+    return (
+        <>
+            <div className="row m-4">
+                <div className="col-12">
+                    <div className="col-6">
+                        <CoinTrending coins={topCoinsTrending()} />
+                    </div>
+                </div>
+            </div>
+
+            <div className="row m-4">
+                {/* Render the table passing the allCoins data */}
+                <div className='col-12'>
+                    <CoinTable coins={allCoins} />
+                </div>
+            </div>
+        </>
+    );
 };
 
 export default Home;

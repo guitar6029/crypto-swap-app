@@ -2,8 +2,10 @@
 
 import React from 'react';
 import styles from './CoinTable.module.scss';
+import { addCommas } from '../../uitls/Numbers/NumberUtils';
 
 type Coin = {
+  current_price: number;
   market_cap_rank: number;
   symbol: string;
   name: string;
@@ -20,8 +22,6 @@ type TableProps = {
 const CoinTable: React.FC<TableProps> = ({ coins }) => {
 
 
-  
-
 
   return (
     <div className={`${styles.coinTable} table-responsive `} >
@@ -31,6 +31,7 @@ const CoinTable: React.FC<TableProps> = ({ coins }) => {
             <th>Rank</th>
             <th>Symbol</th>
             <th>Name</th>
+            <th>Price</th>
             <th>Low 24h</th>
             <th>High 24h</th>
             <th>Market Cap</th>
@@ -42,8 +43,9 @@ const CoinTable: React.FC<TableProps> = ({ coins }) => {
               <td>{coin.market_cap_rank}</td>
               <td className="text-uppercase">{coin.symbol}</td>
               <td className='d-flex align-items-center gap-3'><img className={styles.coinImage} src={coin.image} alt={coin.name} /> {coin.name}</td>
-              <td>{coin.low_24h}</td>
-              <td>{coin.high_24h}</td>
+              <td>{addCommas(coin.current_price)}</td>
+              <td>{addCommas(coin.low_24h)}</td>
+              <td>{addCommas(coin.high_24h)}</td>
               <td>{coin.market_cap.toLocaleString()}</td>
             </tr>
           ))}

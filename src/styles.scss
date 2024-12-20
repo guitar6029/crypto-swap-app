@@ -5,7 +5,8 @@ body {
     margin: 0;
     padding: 0;
     background-color: #000000;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x : hidden;
     /* Prevents scrolling */
     box-sizing: border-box;
     /* Ensures padding and borders are included in the total size */
