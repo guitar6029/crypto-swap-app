@@ -11,6 +11,9 @@ import routesTitles from './routes/routes';
 
 import { useLocation } from 'react-router-dom';
 
+//context
+import CoinTextProvider from "./context/CoinContext";
+
 //wallet modal
 import WalletModal from './components/WalletModal/WalletModal';
 
@@ -40,6 +43,7 @@ const App: React.FC = () => {
 
 
   return (
+    <CoinTextProvider>
     <div>
        {/* Modal popup is outside the Routes, and it's conditionally rendered */}
        {isWalletModalOpened && (
@@ -56,6 +60,7 @@ const App: React.FC = () => {
         {/* Add other routes as needed */}
       </Routes>
     </div>
+    </CoinTextProvider>
   );
 }
 
