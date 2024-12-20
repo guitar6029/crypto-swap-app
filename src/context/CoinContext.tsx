@@ -62,6 +62,7 @@ const CoinTextProvider: React.FC<CoinTextProviderProps> = ({ children }) => {
   const [topTrendingCoins, setTopTrendingCoins] = useState<any[]>([]); // Define state for top trending coins
   const [btcToCurrencyExchangeList, setBTCExchangeRate] = useState<BTCToCurrencyExchangeRates[]>([]);
   const currency = useSelector((state: RootState) => state.modal.currencySelected);
+  const selectedCoin = useSelector((state: RootState) => state.modal.selectedCoin);
 
   useEffect(() => {
     fetchAllCoins(); // Fetch coins when the component mounts
@@ -93,7 +94,7 @@ const CoinTextProvider: React.FC<CoinTextProviderProps> = ({ children }) => {
       .then(res => res.json())
       .then(res => setBTCExchangeRate(res.rates))
       .catch(err => console.error(err));
-  }
+  } 
 
   const fetchTopTrendingCoins = async () => {
     const apiKey = import.meta.env.VITE_COIN_GECKO_API_KEY;
@@ -104,7 +105,7 @@ const CoinTextProvider: React.FC<CoinTextProviderProps> = ({ children }) => {
       
       fetch('https://api.coingecko.com/api/v3/search/trending', options)
         .then(res => res.json())
-        .then(res => { console.log(res.coins); setTopTrendingCoins(res.coins); })
+        .then(res => setTopTrendingCoins(res.coins))
         .catch(err => console.error(err));
   }
 

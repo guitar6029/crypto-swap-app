@@ -4,6 +4,10 @@ import CoinTable from '../../components/CoinTable/CoinTable';
 import CoinModal from '../modal/CoinModal/CoinModal';
 import { Coin, CoinData } from '../../uitls/Interface/Coin/CoinRelated';
 
+//store
+import { useDispatch } from 'react-redux';
+import { selectCoin, selectCurrency } from '../../store/modalSlice';
+
 type HomePropsTypes = {};
 
 // Define the type for the state object
@@ -15,6 +19,10 @@ interface State {
 }
 
 const Home: React.FC<HomePropsTypes> = () => {
+
+
+    const dispatch = useDispatch()
+
     // Group related states into one object for better organization
     const [state, setState] = useState<State>({
         showModal: false,        // State to control modal visibility
@@ -33,8 +41,11 @@ const Home: React.FC<HomePropsTypes> = () => {
 
     // Function to open the modal and set the selected coin
     const handleCoinModal = (coin: any) => {
+       // Dispatch actions to save selected coin and currency in Redux store
+       dispatch(selectCoin(coin.id)); // Assuming coin has an id or name that you want to save
+       dispatch(selectCurrency('usd')); // Set the default or selected currency (update based on your logic)
        
-        updateState({ selectedCoin: coin, showModal: true });
+        updateState({ ...state, selectedCoin: coin, showModal: true });
     };
 
     // Function to close the modal
