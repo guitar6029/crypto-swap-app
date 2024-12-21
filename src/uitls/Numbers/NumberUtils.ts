@@ -7,7 +7,6 @@ export const addCommas = (number: number): string => {
 
 
   export const convertToBigNumber = (number: number, currency: string = 'usd'): string => {
-    console.log("number", number);
   
     // Handle small numbers (less than 1000)
     if (number < 1000) {
