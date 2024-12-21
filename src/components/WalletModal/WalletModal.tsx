@@ -2,6 +2,13 @@ import styles from "./wallet.module.scss";
 import { IoMdCloseCircle } from "react-icons/io";
 import { IoWalletOutline } from "react-icons/io5";
 import TabLink from "../../components/TabLink/TabLink";
+
+
+//images
+import metaMaskImg from "@/assets/metamask.png";
+import coinbaseImg from "@/assets/coinbase.svg";
+
+
 type WalletModalProps = {
     onClose: () => void;
 }
@@ -30,10 +37,10 @@ const WalletModal : React.FC<WalletModalProps> = ({ onClose }) => {
 
                     <div className="row">
                         <div className="col-12 d-flex align-items-center">
-                            <TabLink text="Metamask" imgSrc="../src/assets/metamask.png" />
+                            <TabLink text="Metamask" imgSrc={metaMaskImg} />
                         </div>
                         <div className="col-12 d-flex align-items-center">
-                            <TabLink text="Coinbase" imgSrc="../src/assets/coinbase.svg" />
+                            <TabLink text="Coinbase" imgSrc={coinbaseImg} />
                         </div>
                     </div>
                 </div>
