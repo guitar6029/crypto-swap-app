@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "./TabLink.module.scss";
+import styles from "./tablink.module.scss";
 
 type TabLinkProps = {
     text?: string;   // Optional prop, defaults to undefined

@@ -1,7 +1,7 @@
 
 
 import React from 'react';
-import styles from './CoinTable.module.scss';
+import styles from './coinTable.module.scss';
 import { addCommas } from '../../uitls/Numbers/NumberUtils';
 
 type Coin = {
