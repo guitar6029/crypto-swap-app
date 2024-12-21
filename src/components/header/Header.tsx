@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { RootState, AppDispatch } from '../../store/store'; // Types for Redux
 import { selectCurrency } from '../../store/modalSlice'; // Import the Redux action
 import { useSelector, useDispatch } from 'react-redux';
-import styles from './Header.module.scss';
+import styles from './header.module.scss';
 
 type HeaderProps = {
   onConnectWalletClick: () => void;
