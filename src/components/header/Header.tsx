@@ -9,7 +9,7 @@ type HeaderProps = {
   onConnectWalletClick: () => void;
 };
 
-const Header: React.FC<HeaderProps> = ({ onConnectWalletClick }) => {
+const Header: React.FC<HeaderProps> = ({ }) => {
   const dispatch = useDispatch<AppDispatch>();
   
   // Access the selected currency from the Redux store
