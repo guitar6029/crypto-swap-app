@@ -1,5 +1,5 @@
 // import { useState } from 'react'
-// import styles from './Swap.module.scss'
+// import styles from './swap.module.scss'
 // import CoinTab from '../CoinTab/CoinTab'
 // import { FaArrowCircleDown } from 'react-icons/fa'
 

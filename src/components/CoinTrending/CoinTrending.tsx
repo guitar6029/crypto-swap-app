@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './coinTrending.module.scss';
+import styles from './cointrending.module.scss';
 import { FaChevronRight } from "react-icons/fa6";
 
 

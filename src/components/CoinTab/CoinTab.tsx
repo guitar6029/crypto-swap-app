@@ -1,4 +1,4 @@
-import styles from "./coinTab.module.scss"
+import styles from "./cointab.module.scss"
 
 type CoinTabProps = {
     text: string,
