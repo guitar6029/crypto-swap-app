@@ -88,7 +88,7 @@ const CoinModal: React.FC<CoinModalProps> = ({ coin, onClose }) => {
                 <div className="row mt-4">
                     <div className="col-12 d-flex align-items-center justify-content-center ">
                         {coinData && coinData.prices ? (
-                            <LineChart chartDataProp={coinData} titleChart={coinToDisplay?.id ?? "Crypto Chart"} />
+                            <LineChart chartDataProp={coinData} />
                         ) : (
                             <p>Loading chart data...</p>
                         )}

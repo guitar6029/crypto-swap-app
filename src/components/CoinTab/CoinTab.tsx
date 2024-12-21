@@ -2,11 +2,10 @@ import styles from "./coinTab.module.scss"
 
 type CoinTabProps = {
     text: string,
-    tokenSelected: { tokenName: string, tokenSymbol: string, price: number }
 }
 
 
-const CoinTab : React.FC<CoinTabProps> = ({text, tokenSelected}) => {
+const CoinTab : React.FC<CoinTabProps> = ({text}) => {
 
     return (        
         <div className={styles.coinTabContainer}>

@@ -2,7 +2,7 @@ import { CoinContext } from '../../context/CoinContext';
 import { useContext, useState, useEffect } from 'react';
 import CoinTable from '../../components/CoinTable/CoinTable';
 import CoinModal from '../modal/CoinModal/CoinModal';
-import { Coin, CoinData } from '../../uitls/Interface/Coin/CoinRelated';
+import { Coin } from '../../uitls/Interface/Coin/CoinRelated';
 
 //store
 import { useDispatch } from 'react-redux';

@@ -1,24 +1,24 @@
-import { useState } from 'react'
-import styles from './Swap.module.scss'
-import CoinTab from '../CoinTab/CoinTab'
-import { FaArrowCircleDown } from 'react-icons/fa'
+// import { useState } from 'react'
+// import styles from './Swap.module.scss'
+// import CoinTab from '../CoinTab/CoinTab'
+// import { FaArrowCircleDown } from 'react-icons/fa'
 
 const Swap : React.FC = () => {
 
    
-    const [tokenSelectedPrimary, setTokenSelected] = useState(
-        {
-            tokenName: "Ethereum",
-            tokenSymbol: "ETH",
-            price: 0}
-    )
+    // const [tokenSelectedPrimary, setTokenSelected] = useState(
+    //     {
+    //         tokenName: "Ethereum",
+    //         tokenSymbol: "ETH",
+    //         price: 0}
+    // )
 
-    const [tokenSelectedSecondary, setTokenSelectedSecondary] = useState(
-        {
-            tokenName: "USD",
-            tokenSymbol: "USD",
-            price: 1}
-    )
+    // const [tokenSelectedSecondary, setTokenSelectedSecondary] = useState(
+    //     {
+    //         tokenName: "USD",
+    //         tokenSymbol: "USD",
+    //         price: 1}
+    // )
 
     return (<><div><h4>Work in progress</h4></div></>)
     

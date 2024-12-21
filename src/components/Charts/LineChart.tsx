@@ -5,10 +5,10 @@ import { Chart } from "react-google-charts";
 
 type LineChartProp = {
     chartDataProp : any,
-    titleChart : string
+    
 }
 
-const LineChart : React.FC<LineChartProp> = ({chartDataProp, titleChart}) => {
+const LineChart : React.FC<LineChartProp> = ({chartDataProp}) => {
 
     const [dataForChart, setData] = useState([["Date", "Prices"]])
 

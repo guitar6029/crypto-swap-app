@@ -62,7 +62,6 @@ const CoinTextProvider: React.FC<CoinTextProviderProps> = ({ children }) => {
   const [topTrendingCoins, setTopTrendingCoins] = useState<any[]>([]); // Define state for top trending coins
   const [btcToCurrencyExchangeList, setBTCExchangeRate] = useState<BTCToCurrencyExchangeRates[]>([]);
   const currency = useSelector((state: RootState) => state.modal.currencySelected);
-  const selectedCoin = useSelector((state: RootState) => state.modal.selectedCoin);
 
   useEffect(() => {
     fetchAllCoins(); // Fetch coins when the component mounts
