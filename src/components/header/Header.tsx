@@ -1,4 +1,4 @@
-import { IoWalletOutline } from "react-icons/io5";
+//import { IoWalletOutline } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 import { RootState, AppDispatch } from '../../store/store'; // Types for Redux
 import { selectCurrency } from '../../store/modalSlice'; // Import the Redux action
@@ -16,9 +16,9 @@ const Header: React.FC<HeaderProps> = ({ onConnectWalletClick }) => {
   const selectedCurrency = useSelector((state: RootState) => state.modal.currencySelected);
 
   // Handle connect wallet
-  const handleConnectWallet = () => {
-    onConnectWalletClick();
-  };
+  // const handleConnectWallet = () => {
+  //   onConnectWalletClick();
+  // };
 
   // Handle currency change
   const handleCurrencyChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -47,10 +47,10 @@ const Header: React.FC<HeaderProps> = ({ onConnectWalletClick }) => {
               <option value="eur">EUR</option>
             </select>
           </div>
-          <div onClick={handleConnectWallet} className="hover-tab d-flex align-items-center gap-2">
+          {/* <div onClick={handleConnectWallet} className="hover-tab d-flex align-items-center gap-2">
             <IoWalletOutline size={30} />
             <span>Connect Wallet</span>
-          </div>
+          </div> */}
         </div>
       </div>
     </header>
